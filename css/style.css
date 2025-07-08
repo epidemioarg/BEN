@@ -12,7 +12,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column; /* Organiza header, main, footer en columna */
-    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la vista */
+    min-height: 100dvh; /* Ajuste para el comportamiento en móviles si es compatible (antes 100vh) */
 }
 
 .main-header {
@@ -294,6 +294,7 @@ body.modal-open {
     #main-nav {
         flex-direction: column;
         gap: 5px;
+        align-items: center; /* AGREGADO para centrar los botones horizontalmente en modo columna */
     }
     .nav-button {
         width: 90%;
