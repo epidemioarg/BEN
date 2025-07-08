@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletín Epidemiológico Nacional</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <img src="images/LOGO.png" alt="Logo Institucional" class="header-logo">
+            <div class="header-text">
+                <h1>BOLETÍN EPIDEMIOLÓGICO NACIONAL</h1>
+                <h2>N° 760 - Semana Epidemiológica 23 - Año 2025</h2>
+                <p>Desde 01/06 al 07/06 - Fecha de publicación: 17/06/2025</p>
+            </div>
+        </div>
+        <nav id="main-nav">
+            <button class="nav-button active" data-page="inicio">Inicio</button> 
+            <button class="nav-button" data-page="sarampion">Sarampión</button>
+            <button class="nav-button" data-page="dengue">Dengue y Otros Arbovirus</button>
+            <button class="nav-button" data-page="hantavirus">Hantavirus</button>
+            <button class="nav-button" data-page="influenza">Influenza</button>
+            <button class="nav-button" data-page="basedeconocimiento">Base de Conocimiento</button>
+            <button class="nav-button" data-page="epiherramientas">EpiHerramientas</button>
+            <button class="nav-button" data-page="autoridades">Autoridades</button>
+        </nav>
+    </header>
+
+    <main id="content-container">
+        </main>
+
+    <div id="modal-nota-metodologica" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Nota metodológica</h3>
+            <h4>Sobre la construcción de las tablas.</h4>
+            <p>Las tablas se elaboran con datos basados en la fecha de notificación (o fecha de apertura del caso) en el Sistema Nacional de Vigilancia de la Salud (SNVS 2.0), considerando las semanas epidemiológicas (SE) seleccionadas de los años 2020 a 2025.</p>
+            <p>Para calcular la mediana de los valores acumulados entre 2020 y 2024, se ordenan los datos de menor a mayor y se toma el valor central (tercer puesto en un conjunto de cinco años).</p>
+            <p>Por ejemplo, si el evento X presentó los siguientes valores entre la SE 1-10 de cada año:</p>
+            <p>Sección, Evento, Acumulado 2020, Acumulado 2021, Acumulado 2022, Acumulado 2023, Acumulado 2024, Mediana acumulada, 2020-2024, Acumulado 2025</p>
+            <p>X,X,38,40,34,139,75,40,80</p>
+            <img src="images/tabla0.jpg" alt="Tabla de ejemplo para Nota Metodológica" class="content-image">
+            <p>Los valores ordenados serían: 34, 38, 40, 75, 139, por lo que la mediana es 40. En este caso, los 80 casos de 2025 se compararían con la mediana de 40, resultando en un incremento absoluto de 40 casos y un aumento del 100% en términos porcentuales.</p>
+            <p>El procedimiento de cálculo es el mismo para ambas tablas, con la diferencia de que en la segunda tabla se incluye el total de notificaciones además de los casos confirmados.</p>
+            <h4>Notas adicionales a tener en cuenta</h4>
+            <p>Algunas consideraciones clave sobre las tablas:</p>
+            <ul>
+                <li>✔ Datos parciales y sujetos a modificación: Se compara un año en curso (2025) con años cerrados (2020-2024), por lo que las cifras pueden cambiar.</li>
+                <li>✔ Diferencias con otros informes: Las tablas se basan en la fecha de notificación o apertura del caso, mientras que otros análisis pueden utilizar la fecha de inicio de síntomas (FIS) o una fecha ajustada para cada evento.</li>
+                <li>✔ Exclusión de casos invalidados: No se incluyen en las tablas los casos invalidados por epidemiología.</li>
+                <li>✔ Clasificación de los casos confirmados: La metodología varía según el evento, pudiendo emplearse algoritmos específicos o una clasificación manual.</li>
+                <li>✔ Confirmaciones prolongadas en ciertos eventos: En patologías como Chagas y Sífilis Congénita, los casos sospechosos pueden permanecer en esa categoría durante varios meses antes de su confirmación.</li>
+                <li>✔ Interpretación del "N/A": Cuando aparece "N/A" en las tablas, significa que la diferencia porcentual "No Aplica", generalmente porque uno de los valores en la comparación es cero.</li>
+                <li>✔ Valores bajos y análisis porcentual: Aunque se presentan los valores porcentuales para todos los eventos, en aquellos con menos de 20-30 casos, se recomienda cautela en la interpretación.</li>
+            </ul>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <div id="modal-sarampion-metodologia" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Introducción</h3>
+            <p>El sarampión es una enfermedad viral, altamente contagiosa, que puede presentarse en todas las edades. Su gravedad es mayor en niños menores de 5 años o desnutridos, en los cuales puede causar graves complicaciones respiratorias como neumonía y del sistema nervioso central como convulsiones, meningoencefalitis, ceguera, encefalomielitis postinfecciosa con retraso mental grave y trastornos degenerativos tardíos que no tienen tratamiento o incluso causar la muerte.
+            Se transmite mediante gotas de aire de la nariz, boca, o garganta de una persona infectada. El virus puede persistir en el aire o sobre superficies, siendo activo y contagioso por 2 horas.
+            No existe ningún tratamiento antiviral específico contra el virus del sarampión, solo existen medidas de sostén clínico y de sus complicaciones. Puede prevenirse con la vacunación.</p>
+            <h3>Situación epidemiológica mundial y regional</h3>
+            <h4>CANADÁ</h4> 
+            <p>En 2025, se han notificado un total de 2.968 casos de sarampión (2.698 confirmados, 270 probables) en 9 jurisdicciones (Alberta, Columbia Británica, Manitoba, Territorios del Noroeste, Nueva Escocia, Ontario, Isla del Príncipe Eduardo, Quebec, Saskatchewan), hasta el 31 de mayo de 2025.
+            En la semana 22 (del 25 al 31 de mayo de 2025), se notificaron 225 nuevos casos de sarampión (208 confirmados y 17 probables) en 4 jurisdicciones (Alberta, Manitoba, Ontario y Saskatchewan).</p>
+            
+            <h4>Figura 1. Número de casos de sarampión notificados en Canadá por año de inicio del exantema, desde la eliminación del sarampión (1998) hasta el 31 de mayo de 2025.</h4>
+            <img src="images/sar6.jpg" alt="Gráfico Sarampión Casos por Municipio" class="content-image">
+            <p class="citation">https://health-infobase.canada.ca/measles-rubella/.</p>
+
+            <h4>ESTADOS UNIDOS DE AMÉRICA</h4> 
+            <p>Al 12 de junio de 2025, se notificaron un total de 1.197 casos confirmados de sarampión en 35 jurisdicciones: Alaska, Arkansas, Arizona, California, Colorado, Florida, Georgia, Hawái, Illinois, Indiana, Iowa, Kansas, Kentucky, Luisiana, Maryland, Michigan, Minnesota, Misuri, Montana, Nebraska, Nueva Jersey, Nuevo México, Ciudad de Nueva York, Estado de Nueva York, Dakota del Norte, Ohio, Oklahoma, Pensilvania, Rhode Island, Dakota del Sur, Tennessee, Texas, Vermont, Virginia y Washington.
+            En 2025 se han notificado 21 brotes, y el 90% de los casos confirmados (1.072 de 1.197) están asociados a brotes. En comparación, durante 2024 se notificaron 16 brotes y el 69% de los casos (198 de 285) estuvieron asociados a brotes. 
+            En el 2025 ha habido 3 muertes confirmadas por sarampión.</p>
+
+            <h4>Figura 2. Casos anuales de sarampión. Estados Unidos de América. 2023-2025 (hasta 12/06/25)</h4>
+            <img src="images/sar7.jpg" alt="Mapa Sarampión Distribución Geográfica" class="content-image">
+            
+
+            <h4>MÉXICO</h4> 
+            <p>Al 12 de junio, se han reportado 2.336 casos confirmados de sarampión acumulados en el 2025; en las 24 horas previas se reportaron 120 casos. Con base en la distribución de casos confirmados de sarampión por entidad federativa y municipios, 18 estados y 58 municipios tienen casos confirmados de sarampión.
+            Se han reportado 5 fallecimientos.</p>
+
+            <h4>Figura 3. Casos probables y confirmados de sarampión por semana epidemiológica y fecha de inicio de exantema, México 2025. </h4>
+            <img src="images/sar8.jpg" alt="Gráfico Sarampión Cobertura Vacunal" class="content-image">
+            
+            <h4>PERÚ</h4> 
+            <p>El 11 de junio, Perú informó que hasta la SE 23 se han registrado 272 casos sospechosos y 4 confirmados. De los casos confirmados, dos corresponden a casos importados en hermanos menores de edad y no vacunados, residentes en el distrito de Ate, con antecedentes de viaje reciente a Kansas (EEUU) y exposición conocida a un caso confirmado de sarampión. Los dos casos confirmados adicionales corresponden al personal sanitario que prestó asistencia a uno de los casos importados.</p>
+            
+            <h4>BOLIVIA</h4> 
+            <p>El Ministerio de Salud y Deportes informó que hasta el día 6 de junio hay tres casos de sarampión registrados en 2025. El último caso confirmado corresponde a un niño de 8 años. Se informa que se han tomado medidas de aislamiento del paciente y sus contactos, así como la búsqueda activa de contactos y un barrido de al menos 25 manzanas alrededor del domicilio para ejecutar el bloqueo vacunal.</p> 
+            
+            <h4>BELICE</h4> 
+            <p>Al 30 de mayo de 2025 el Ministerio de Salud y Bienestar informa sobre el brote de sarampión en curso. Se recolectaron muestras de 69 personas con fiebre y exantema. Se han confirmado 9 casos por laboratorio y 9 por nexo epidemiológico.</p> 
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <div id="modal-dengue-prevencion" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Prevención y Síntomas del Dengue</h3>
+            <p>Aquí aparecería la información detallada al hacer clic en "Más Info" para Dengue. Puedes poner texto, imágenes o incluso otros gráficos aquí dentro.</p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <div id="modal-hantavirus-sintomas" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Síntomas del Hantavirus</h3>
+            <p>Información adicional sobre los síntomas, tratamientos o medidas de precaución para Hantavirus.</p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <div id="modal-influenza-vacunacion" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Importancia de la Vacunación contra Influenza</h3>
+            <p>Detalles sobre la campaña de vacunación, grupos de riesgo y beneficios de la vacuna contra la Influenza.</p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Boletín Epidemiológico Nacional. Todos los derechos reservados.</p>
+    </footer>
+
+    <script type="module" src="js/gsap-animations.js"></script> 
+    <script type="module" src="js/main.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/maps.js"></script>
+</body>
+</html>

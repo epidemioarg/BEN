@@ -1,0 +1,33 @@
+<!-- content/dengue.html -->
+<section class="page-section" id="dengue-section">
+    <div class="content-section">
+        <h2>Dengue y Otros Arbovirus: Situación Actual</h2>
+        <p>Esta sección presenta un análisis detallado de la situación epidemiológica del dengue y otros arbovirus en Argentina. Se incluyen gráficos de casos por provincia y un mapa interactivo para visualizar la distribución geográfica.</p>
+        <p>La vigilancia de arbovirus es crucial para la salud pública, permitiendo identificar brotes y tomar medidas preventivas de manera oportuna.</p>
+    </div>
+
+    <div class="content-section">
+        <h3>Tasas de Dengue por Provincia (2025)</h3>
+        <div class="chart-wrapper">
+            <canvas id="dengueProvinciaChart"></canvas>
+            <!-- El placeholder se ocultará cuando el gráfico se inicialice -->
+            <div class="placeholder-chart" style="display: none;">Gráfico de Dengue por Provincia (cargando...)</div>
+        </div>
+        <p class="citation">Fuente: Datos ejemplos.</p>
+    </div>
+
+    <div class="content-section">
+        <h3>Distribución Geográfica del Dengue</h3>
+        <div class="placeholder-map" id="dengueMap" style="height: 400px;">
+            <!-- El mapa de Leaflet se cargará aquí -->
+            Mapa de Incidencia de Dengue (cargando...)
+        </div>
+        <p class="citation">Fuente: Datos ejemplos.</p>
+    </div>
+
+    <div class="content-section">
+        <button class="btn-modal-trigger" data-modal-target="modal-dengue-prevencion">
+            Más información sobre Prevención de Dengue
+        </button>
+    </div>
+</section>
