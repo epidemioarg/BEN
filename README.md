@@ -1,2 +1,1 @@
-# BEN
-Boletín Epidemiológico Nacional Interactivo
+# Boletin

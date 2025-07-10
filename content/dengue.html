@@ -1,33 +1,12 @@
-<!-- content/dengue.html -->
-<section class="page-section" id="dengue-section">
-    <div class="content-section">
-        <h2>Dengue y Otros Arbovirus: Situación Actual</h2>
-        <p>Esta sección presenta un análisis detallado de la situación epidemiológica del dengue y otros arbovirus en Argentina. Se incluyen gráficos de casos por provincia y un mapa interactivo para visualizar la distribución geográfica.</p>
-        <p>La vigilancia de arbovirus es crucial para la salud pública, permitiendo identificar brotes y tomar medidas preventivas de manera oportuna.</p>
+<section id="dengue" class="boletin-page">
+    <h2>Dengue y Otros Arbovirus: Vigilancia y Control</h2>
+    <p>La situación epidemiológica de dengue en la SE 23/2025 muestra una disminución en la incidencia de casos en la mayoría de las jurisdicciones. Sin embargo, se mantiene la alerta por la circulación viral y la presencia del vector.</p>
+    <h3>Distribución de Casos de Dengue por Jurisdicción (acumulado 2025)</h3>
+    <div class="chart-wrapper">
+        <div id="dengueMap" class="placeholder-map">Mapa interactivo de casos de dengue</div>
     </div>
-
-    <div class="content-section">
-        <h3>Tasas de Dengue por Provincia (2025)</h3>
-        <div class="chart-wrapper">
-            <canvas id="dengueProvinciaChart"></canvas>
-            <!-- El placeholder se ocultará cuando el gráfico se inicialice -->
-            <div class="placeholder-chart" style="display: none;">Gráfico de Dengue por Provincia (cargando...)</div>
-        </div>
-        <p class="citation">Fuente: Datos ejemplos.</p>
-    </div>
-
-    <div class="content-section">
-        <h3>Distribución Geográfica del Dengue</h3>
-        <div class="placeholder-map" id="dengueMap" style="height: 400px;">
-            <!-- El mapa de Leaflet se cargará aquí -->
-            Mapa de Incidencia de Dengue (cargando...)
-        </div>
-        <p class="citation">Fuente: Datos ejemplos.</p>
-    </div>
-
-    <div class="content-section">
-        <button class="btn-modal-trigger" data-modal-target="modal-dengue-prevencion">
-            Más información sobre Prevención de Dengue
-        </button>
-    </div>
+    <p>Se refuerzan las medidas de prevención, eliminación de criaderos y la vigilancia de síndromes febriles para una detección temprana.</p>
+    <button class="more-info-btn" data-modal="modal-dengue-prevencion">
+        Prevención y Síntomas Clave <span class="info-icon">➡️</span>
+    </button>
 </section>

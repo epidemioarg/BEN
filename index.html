@@ -9,9 +9,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
 </head>
 <body>
     <header class="main-header">
@@ -19,91 +16,31 @@
             <img src="images/LOGO.png" alt="Logo Institucional" class="header-logo">
             <div class="header-text">
                 <h1>BOLETÍN EPIDEMIOLÓGICO NACIONAL</h1>
-                <h2>N° 760 - Semana Epidemiológica 23 - Año 2025</h2>
-                <p>Desde 01/06 al 07/06 - Fecha de publicación: 17/06/2025</p>
+                <h2>N° 763 - Semana Epidemiológica 26 - Año 2025</h2>
+                <p>Desde 22/06 al 28/06 - Fecha de publicación: 10/07/2025</p>
+                <p><strong>Monóxido de carbono – Actualización informe epidemiológico</strong></p>
             </div>
         </div>
         <nav id="main-nav">
             <button class="nav-button active" data-page="inicio">Inicio</button> 
             <button class="nav-button" data-page="sarampion">Sarampión</button>
-            <button class="nav-button" data-page="dengue">Dengue y Otros Arbovirus</button>
-            <button class="nav-button" data-page="hantavirus">Hantavirus</button>
-            <button class="nav-button" data-page="influenza">Influenza</button>
+            <button class="nav-button" data-page="respiratorias">Respiratorias</button> <!-- Sección Respiratorias -->
+            <button class="nav-button" data-page="rabia">Rabia</button>             <!-- Sección Rabia -->
+            <button class="nav-button" data-page="monoxido">Monóxido</button>         <!-- Sección Monóxido -->
             <button class="nav-button" data-page="basedeconocimiento">Base de Conocimiento</button>
-            <button class="nav-button" data-page="epiherramientas">EpiHerramientas</button>
             <button class="nav-button" data-page="autoridades">Autoridades</button>
         </nav>
     </header>
 
     <main id="content-container">
-        </main>
+        <!-- El contenido de las páginas se cargará aquí dinámicamente por JavaScript -->
+    </main>
 
-    <div id="modal-nota-metodologica" class="modal-overlay hidden">
+    <!-- Modales existentes -->
+    <div id="modal-sarampion-vacunacion" class="modal-overlay hidden">
         <div class="modal-content">
-            <h3>Nota metodológica</h3>
-            <h4>Sobre la construcción de las tablas.</h4>
-            <p>Las tablas se elaboran con datos basados en la fecha de notificación (o fecha de apertura del caso) en el Sistema Nacional de Vigilancia de la Salud (SNVS 2.0), considerando las semanas epidemiológicas (SE) seleccionadas de los años 2020 a 2025.</p>
-            <p>Para calcular la mediana de los valores acumulados entre 2020 y 2024, se ordenan los datos de menor a mayor y se toma el valor central (tercer puesto en un conjunto de cinco años).</p>
-            <p>Por ejemplo, si el evento X presentó los siguientes valores entre la SE 1-10 de cada año:</p>
-            <p>Sección, Evento, Acumulado 2020, Acumulado 2021, Acumulado 2022, Acumulado 2023, Acumulado 2024, Mediana acumulada, 2020-2024, Acumulado 2025</p>
-            <p>X,X,38,40,34,139,75,40,80</p>
-            <img src="images/tabla0.jpg" alt="Tabla de ejemplo para Nota Metodológica" class="content-image">
-            <p>Los valores ordenados serían: 34, 38, 40, 75, 139, por lo que la mediana es 40. En este caso, los 80 casos de 2025 se compararían con la mediana de 40, resultando en un incremento absoluto de 40 casos y un aumento del 100% en términos porcentuales.</p>
-            <p>El procedimiento de cálculo es el mismo para ambas tablas, con la diferencia de que en la segunda tabla se incluye el total de notificaciones además de los casos confirmados.</p>
-            <h4>Notas adicionales a tener en cuenta</h4>
-            <p>Algunas consideraciones clave sobre las tablas:</p>
-            <ul>
-                <li>✔ Datos parciales y sujetos a modificación: Se compara un año en curso (2025) con años cerrados (2020-2024), por lo que las cifras pueden cambiar.</li>
-                <li>✔ Diferencias con otros informes: Las tablas se basan en la fecha de notificación o apertura del caso, mientras que otros análisis pueden utilizar la fecha de inicio de síntomas (FIS) o una fecha ajustada para cada evento.</li>
-                <li>✔ Exclusión de casos invalidados: No se incluyen en las tablas los casos invalidados por epidemiología.</li>
-                <li>✔ Clasificación de los casos confirmados: La metodología varía según el evento, pudiendo emplearse algoritmos específicos o una clasificación manual.</li>
-                <li>✔ Confirmaciones prolongadas en ciertos eventos: En patologías como Chagas y Sífilis Congénita, los casos sospechosos pueden permanecer en esa categoría durante varios meses antes de su confirmación.</li>
-                <li>✔ Interpretación del "N/A": Cuando aparece "N/A" en las tablas, significa que la diferencia porcentual "No Aplica", generalmente porque uno de los valores en la comparación es cero.</li>
-                <li>✔ Valores bajos y análisis porcentual: Aunque se presentan los valores porcentuales para todos los eventos, en aquellos con menos de 20-30 casos, se recomienda cautela en la interpretación.</li>
-            </ul>
-            <button class="close-modal-btn">X</button>
-        </div>
-    </div>
-
-    <div id="modal-sarampion-metodologia" class="modal-overlay hidden">
-        <div class="modal-content">
-            <h3>Introducción</h3>
-            <p>El sarampión es una enfermedad viral, altamente contagiosa, que puede presentarse en todas las edades. Su gravedad es mayor en niños menores de 5 años o desnutridos, en los cuales puede causar graves complicaciones respiratorias como neumonía y del sistema nervioso central como convulsiones, meningoencefalitis, ceguera, encefalomielitis postinfecciosa con retraso mental grave y trastornos degenerativos tardíos que no tienen tratamiento o incluso causar la muerte.
-            Se transmite mediante gotas de aire de la nariz, boca, o garganta de una persona infectada. El virus puede persistir en el aire o sobre superficies, siendo activo y contagioso por 2 horas.
-            No existe ningún tratamiento antiviral específico contra el virus del sarampión, solo existen medidas de sostén clínico y de sus complicaciones. Puede prevenirse con la vacunación.</p>
-            <h3>Situación epidemiológica mundial y regional</h3>
-            <h4>CANADÁ</h4> 
-            <p>En 2025, se han notificado un total de 2.968 casos de sarampión (2.698 confirmados, 270 probables) en 9 jurisdicciones (Alberta, Columbia Británica, Manitoba, Territorios del Noroeste, Nueva Escocia, Ontario, Isla del Príncipe Eduardo, Quebec, Saskatchewan), hasta el 31 de mayo de 2025.
-            En la semana 22 (del 25 al 31 de mayo de 2025), se notificaron 225 nuevos casos de sarampión (208 confirmados y 17 probables) en 4 jurisdicciones (Alberta, Manitoba, Ontario y Saskatchewan).</p>
-            
-            <h4>Figura 1. Número de casos de sarampión notificados en Canadá por año de inicio del exantema, desde la eliminación del sarampión (1998) hasta el 31 de mayo de 2025.</h4>
-            <img src="images/sar6.jpg" alt="Gráfico Sarampión Casos por Municipio" class="content-image">
-            <p class="citation">https://health-infobase.canada.ca/measles-rubella/.</p>
-
-            <h4>ESTADOS UNIDOS DE AMÉRICA</h4> 
-            <p>Al 12 de junio de 2025, se notificaron un total de 1.197 casos confirmados de sarampión en 35 jurisdicciones: Alaska, Arkansas, Arizona, California, Colorado, Florida, Georgia, Hawái, Illinois, Indiana, Iowa, Kansas, Kentucky, Luisiana, Maryland, Michigan, Minnesota, Misuri, Montana, Nebraska, Nueva Jersey, Nuevo México, Ciudad de Nueva York, Estado de Nueva York, Dakota del Norte, Ohio, Oklahoma, Pensilvania, Rhode Island, Dakota del Sur, Tennessee, Texas, Vermont, Virginia y Washington.
-            En 2025 se han notificado 21 brotes, y el 90% de los casos confirmados (1.072 de 1.197) están asociados a brotes. En comparación, durante 2024 se notificaron 16 brotes y el 69% de los casos (198 de 285) estuvieron asociados a brotes. 
-            En el 2025 ha habido 3 muertes confirmadas por sarampión.</p>
-
-            <h4>Figura 2. Casos anuales de sarampión. Estados Unidos de América. 2023-2025 (hasta 12/06/25)</h4>
-            <img src="images/sar7.jpg" alt="Mapa Sarampión Distribución Geográfica" class="content-image">
-            
-
-            <h4>MÉXICO</h4> 
-            <p>Al 12 de junio, se han reportado 2.336 casos confirmados de sarampión acumulados en el 2025; en las 24 horas previas se reportaron 120 casos. Con base en la distribución de casos confirmados de sarampión por entidad federativa y municipios, 18 estados y 58 municipios tienen casos confirmados de sarampión.
-            Se han reportado 5 fallecimientos.</p>
-
-            <h4>Figura 3. Casos probables y confirmados de sarampión por semana epidemiológica y fecha de inicio de exantema, México 2025. </h4>
-            <img src="images/sar8.jpg" alt="Gráfico Sarampión Cobertura Vacunal" class="content-image">
-            
-            <h4>PERÚ</h4> 
-            <p>El 11 de junio, Perú informó que hasta la SE 23 se han registrado 272 casos sospechosos y 4 confirmados. De los casos confirmados, dos corresponden a casos importados en hermanos menores de edad y no vacunados, residentes en el distrito de Ate, con antecedentes de viaje reciente a Kansas (EEUU) y exposición conocida a un caso confirmado de sarampión. Los dos casos confirmados adicionales corresponden al personal sanitario que prestó asistencia a uno de los casos importados.</p>
-            
-            <h4>BOLIVIA</h4> 
-            <p>El Ministerio de Salud y Deportes informó que hasta el día 6 de junio hay tres casos de sarampión registrados en 2025. El último caso confirmado corresponde a un niño de 8 años. Se informa que se han tomado medidas de aislamiento del paciente y sus contactos, así como la búsqueda activa de contactos y un barrido de al menos 25 manzanas alrededor del domicilio para ejecutar el bloqueo vacunal.</p> 
-            
-            <h4>BELICE</h4> 
-            <p>Al 30 de mayo de 2025 el Ministerio de Salud y Bienestar informa sobre el brote de sarampión en curso. Se recolectaron muestras de 69 personas con fiebre y exantema. Se han confirmado 9 casos por laboratorio y 9 por nexo epidemiológico.</p> 
+            <h3>Vacunación contra el Sarampión: Esquemas y Recomendaciones</h3>
+            <p>Aquí puedes añadir detalles sobre el calendario de vacunación, la importancia de la doble o triple viral, quiénes deben vacunarse, etc. Puedes incluir texto, listas, imágenes, etc.</p>
             <button class="close-modal-btn">X</button>
         </div>
     </div>
@@ -132,13 +69,213 @@
         </div>
     </div>
 
+    <!-- MODALES PARA SARAMPIÓN -->
+    <div id="modal-sarampion-actual" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Situación actual en Argentina</h3>
+            <p>Durante el 2025 en Argentina se notificaron 2.554 casos de Enfermedad Febril Exantemática (EFE) en el país (Gráfico 1). A partir de la Semana Epidemiológica (SE) 6, coincidiendo con la emisión del alerta epidemiológica del Ministerio de Salud de la Nación, se evidencia un aumento progresivo en la notificación de casos, alcanzando su punto máximo en las semanas 12 y 13.</p>
+            <p>Al cierre de este informe se detectó un nuevo caso (caso 35) confirmado en la localidad de El Pato, departamento Berazategui, en la provincia de Buenos Aires, con fecha de inicio de síntomas el día 25 de junio. Corresponde a una niña de 4 años sin información hasta el momento de la completud de su calendario de vacunación.</p>
+            <p>Las acciones de control y seguimiento se encuentran realizándose por parte de la jurisdicción, y se contemplarán los tiempos de posible aparición de casos secundario y seguimiento de contactos.</p>
+            <p>Se destaca que del total de los 35 casos confirmados, 21 corresponden a la provincia de Buenos Aires, 13 a la Ciudad Autónoma de Buenos Aires (CABA) y 1 caso importado de la provincia de San Luis. 
+            <p><b>Gráfico 1. Número de casos confirmados de Sarampión según semana epidemiológica. Argentina. SE1 a SE27 de 2025. N= 35</b></p>
+            <img src="images/sar1.jpg" alt="Gráfico 1: Casos de Sarampión por Semana Epidemiológica" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+
+            <p><b>Tabla 1. Distribución de casos notificados y confirmados por jurisdicción en Argentina. Tasa cada 100 mil habitantes y notificaciones esperadas para el período actual. SE1 a SE26 de 2025 </b>.</p>
+            <img src="images/sar4.jpg" alt="Tabla 1: Distribución de casos de Sarampión por Jurisdicción" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <div id="modal-sarampion-prevencion" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Medidas de prevención</h3>
+            <p>Todas las personas desde el año de vida deben tener esquema de vacunación completo contra el sarampión y la rubéola, según Calendario Nacional de Vacunación: </p>
+            <p>De 12 meses a 4 años: deben acreditar UNA DOSIS de vacuna triple viral.</p>
+            <p>Niños de 5 años y más, adolescentes y personas adultas deben acreditar al menos DOS DOSIS de vacuna con componente contra sarampión y rubéola aplicada después del año de vida (doble o triple viral) o contar con serología IgG positiva para sarampión y rubéola.</p>
+            <p>Las personas nacidas antes de 1965 se consideran inmunes y no necesitan vacunarse. </p>
+            <p>El antecedente de vacunación se deberá constatar a través del registro nominal de vacunación o por presentación del carnet de vacunación donde conste el esquema completo para sarampión y la rubéola, según Calendario Nacional de Vacunación.</p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    <!-- FIN MODALES PARA SARAMPIÓN -->
+
+    <!-- NUEVOS MODALES PARA RESPIRATORIAS -->
+    <div id="modal-respiratorias-clinica" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>ENFERMEDAD TIPO INFLUENZA (ETI)</h3>
+            <p>Entre las SE 1 y 25 de 2025 se notificaron en el componente de Vigilancia Clínica del SNVS 524.114 casos de ETI, con una tasa de incidencia acumulada de 1104,0 casos/ 100.000 habitantes.</p>
+            <p>Para el mismo periodo de los años 2015 – 2025, el mayor número de notificaciones de ETI se registró durante 2022 (630.664 casos), mientras que en 2020 y 2021 se reportó un nivel de casos inferior en comparación con los años previos. En el corriente año se registra un menor número de casos que los 3 años anteriores, siendo superado además por las notificaciones de los años 2016 y 2017.</p>
+            <p><b>Gráfico 1: Casos e Incidencia Acumulada de Enfermedad Tipo Influenza (ETI) por 100.000 habitantes. Años 2015-2025. SE25. Argentina.</b></p>
+            <img src="images/eti1.jpg" alt="Gráfico 1: Casos e Incidencia Acumulada de ETI" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <p><b>Gráfico 2: Enfermedad Tipo Influenza: Corredor endémico semanal- Históricos 5 años: 2017-2024. SE 1 a 25 de 2025 . Argentina.</b></p>
+            <img src="images/eti2.jpg" alt="Gráfico 2: Corredor endémico semanal de ETI" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+
+            <h3>NEUMONÍA</h3>
+            <p>Hasta la SE25 de 2025 se notificaron en el componente de Vigilancia Clínica del SNVS 70.420 casos de Neumonía, con una incidencia acumulada de 148,3 casos/ 100.000 habitantes.</p>
+            <p>Entre 2015 y 2025, las notificaciones de neumonía mostraron el mayor número de casos en 2022. Las notificaciones presentan una disminución sostenida entre 2016 y 2018, con un ligero ascenso en 2019 respecto del año anterior. En 2020 se registró un nuevo descenso de casos, volviendo a incrementarse durante los años 2021-2022, y mostrando una disminución en 2023-2025.</p>
+            <p><b>Gráfico 3: Casos e Incidencia Acumulada de Neumonía por 100.000 habitantes. Años 2015-2025. SE25. Argentina.</b></p>
+            <img src="images/neumo1.jpg" alt="Gráfico 3: Casos e Incidencia Acumulada de Neumonía" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <p><b>Gráfico 4: Neumonía: Corredor endémico semanal- Históricos 5 años: 2017-2024. SE 1 a 25 de 2025 . Argentina.</b></p>
+            <img src="images/neumo2.jpg" alt="Gráfico 4: Corredor endémico semanal de Neumonía" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+
+            <h3>BRONQUIOLITIS</h3>
+            <p>En las primeras 25 semanas epidemiológicas de 2025, se notificaron en el componente de Vigilancia Clínica del SNVS 49.013 casos de Bronquiolitis, con una tasa de incidencia acumulada de 3388,8 casos/100.000 habitantes.</p>
+            <p>En relación a los años previos, las notificaciones de bronquiolitis entre las SE 1 y 25 alcanzaron su pico en 2016, seguido de un descenso en 2017 y 2018. En 2019, presentaron un incremento respecto al año anterior, con un nuevo descenso en 2020 y 2021, cuando se registró el menor número de notificaciones. Para los años 2022 a 2023 se verifica un aumento en las notificaciones de bronquiolitis, mientras que en 2024 las notificaciones presentaron un nuevo descenso para las primeras 25 semanas. En relación al corriente 2025, los casos permanecen en valores menores en comparación con la mayoría de los años históricos, con excepción de los años 2020 y 2021.</p>
+            <p><b>Gráfico 5: Casos e Incidencia Acumulada de Bronquiolitis en menores de 2 años por 100.000 habitantes. Años 2015-2025. SE25. Argentina.</b></p>
+            <img src="images/bron1.jpg" alt="Gráfico 5: Casos e Incidencia Acumulada de Bronquiolitis" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <p><b>Gráfico 6: Bronquiolitis en menores de 2 años: Corredor endémico semanal- Históricos 5 años: 2017-2024. SE 1 a 25 de 2025 . Argentina.</b></p>
+            <img src="images/bron2.jpg" alt="Gráfico 6: Corredor endémico semanal de Bronquiolitis" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <div id="modal-respiratorias-universal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Vigilancia Universal de Virus Respiratorios - Red de Laboratorios</h3>
+            <p>Desde la SE11 se observa un aumento sostenido en el número de casos de Influenza, con predominio de Influenza A (H1N1), con un adelanto del ascenso estacional respecto de lo registrado en años anteriores. Además, en relación a VSR se registra un aumento en las detecciones a partir de SE12, con inicio de actividad estacional a partir de la SE20. Las detecciones de SARS-CoV-2 permanecen en niveles bajos.</p>
+            <p><b>Gráfico 7. Distribución de influenza, SARS-CoV-2 y OVR identificados por Semana epidemiológica. SE01/2024 a SE25/2025. Argentina.</b></p>
+            <img src="images/uni1.jpg" alt="Gráfico 7: Distribución de Influenza, SARS-CoV-2 y OVR" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <p>En relación a virus influenza, en lo que va de 2025, se registraron casos todas las semanas y, desde la SE11, se verifica un ascenso de las detecciones de influenza, con predominio de influenza A no subtipificado y H1N1. En las últimas 2 SE (24 y 25) se notificaron un total de 2.742 detecciones de Influenza</p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    <!-- FIN NUEVOS MODALES PARA RESPIRATORIAS -->
+
+    <!-- NUEVOS MODALES PARA RABIA -->
+    <div id="modal-rabia-preventivas" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>MEDIDAS PREVENTIVAS</h3>
+            <ul>
+                <li>Vacunación antirrábica (profilaxis pre-exposición) en aquellos grupos humanos con alto riesgo de exposición al virus rábico, ya sea por motivos laborales o recreacionales.</li>
+                <li>La persona que sufre un Accidente Potencialmente Rábico (APR) debe, antes de concurrir al efector de salud, proceder, lo más rápido posible, a la limpieza de la herida con abundante agua corriente y jabón.</li>
+                <li>Concurrir inmediatamente al efector de salud ante la ocurrencia de un accidente potencialmente rábico para recibir el tratamiento que corresponda (profilaxis post- exposición)</li>
+                <li>Vacunación antirrábica en animales domésticos de compañía.</li>
+                <li>Control poblacional: tenencia responsable de animales de compañía (perros y gatos). Esterilización quirúrgica a hembras y machos.</li>
+                <li>Educación para la salud en relación a la prevención de rabia.</li>
+                <li>Legislación para la importación de animales tanto por vía aérea como terrestre.</li>
+            </ul>
+            <h4>Vacunación antirrábica</h4>
+            <p>La vacunación antirrábica es de carácter obligatorio en perros y gatos (Ley Antirrábica 22.953) e incluye una primovacunación a los 3 meses de edad y revacunaciones anuales durante toda la vida del animal. La vacunación de los animales de importancia económica (bovinos, equinos, ovejas, entre otros) contra la rabia es voluntaria, excepto en las siguientes situaciones, en que la vacunación es obligatoria: frente a la aparición de un caso confirmado de rabia paresiante (vacunación de emergencia) y dentro del área endémica, en los siguientes animales y tipos de establecimiento:</p>
+            <ul>
+                <li>Establecimientos de engorde a corral: vacunación de los animales a su ingreso.</li>
+                <li>Cabañas y haras: vacunación de los animales que se envían a exposiciones o remates: dos dosis, la primera entre 80 y 60 días y la segunda entre 50 y 30 días antes del traslado o remate.</li>
+                <li>Herbívoros utilizados para deportes (jineteadas, carreras, polo, salto, entre otros).</li>
+            </ul>
+            <h4>Otras medidas</h4>
+            <ul>
+                <li>Control poblacional de perros y gatos mediante la esterilización quirúrgica.</li>
+                <li>Educación para la salud sobre prevención de la rabia.</li>
+                <li>Legislación para la importación de animales.</li>
+                <li>Fortalecimiento de las estructuras de vigilancia de campo, de laboratorio y de control de las poblaciones de murciélagos hematófagos.</li>
+                <li>Ejecución de medidas de control de las movilizaciones y de la cuarentena de los animales</li>
+            </ul>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    <div id="modal-rabia-historica" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Situación Epidemiológica Histórica (2019-2024)</h3>
+            <p>La vigilancia del evento “Rabia animal” se lleva a cabo ante la sospecha clínica de la enfermedad en mamíferos, con notificación obligatoria e inmediata de todo caso sospechoso. El sistema busca detectar tempranamente la circulación del virus rábico, identificar reservorios y prevenir la transmisión a otras especies, incluyendo humanos.</p>
+            <p>Entre 2019 y 2024 se notificaron un total de 927 casos confirmados de rabia animal en Argentina. El año con mayor número de casos fue 2022, con 224 registros confirmados, mientras que el menor número se reportó en 2021, con 109 casos. La tendencia nacional muestra una notificación fluctuante, con un pico en 2022, seguido de una disminución en los años posteriores, aunque sin retornar a los valores bajos de 2019 y 2020.</p>
+            <p><b>Tabla 1. Casos confirmados de rabia animal según jurisdicción. Argentina, SE 1 a SE 52, período 2019-2024.</b></p>
+            <img src="images/rabia1.jpg" alt="Tabla 1: Casos confirmados de rabia animal por jurisdicción" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <p><b>Tabla 2. Casos confirmados de rabia animal según especie. Argentina, SE 1 a SE 52, período 2019-2024.</b></p>
+            <img src="images/rabia0.jpg" alt="Tabla 2: Casos confirmados de rabia animal por especie" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <p><b>Mapa 1. Casos confirmados de rabia animal según grupo de especie por departamento. Argentina, SE 1 a SE 52, período 2019-2024.</b></p>
+            <img src="images/rabia2.jpg" alt="Mapa 1: Casos confirmados de rabia animal por departamento" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    <div id="modal-rabia-actual" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Situación Epidemiológica Actual (2025)</h3>
+            <p>Hasta la Semana Epidemiológica 22 del año 2025, se han confirmado 76 casos de rabia animal en 13 de las 24 jurisdicciones del país. Tal como se ha observado en años anteriores, la mayor proporción de casos corresponde a murciélagos no hematófagos, con un total de 67 detecciones, concentradas principalmente en la región Centro. En menor medida, se notificaron casos en animales de producción, particularmente bovinos, en el NEA (4) y NOA (3).</p>
+            <p>Asimismo, se notificó un caso en un felino doméstico en la provincia de Buenos Aires, correspondiente a la variante antigénica 4, asociada a Tadarida brasiliensis. La distribución geográfica y por especie de los casos confirmados hasta la fecha se presenta en la Tabla 3 y el Mapa 2</p>
+            <p><b>Tabla 3. Casos confirmados de rabia animal según jurisdicción. Argentina, SE 01 a 22, año 2025</b></p>
+            <p>El Mapa 2 presenta la distribución espacial de los casos confirmados de rabia animal en el país en el año en curso, según grupo de especie y departamento de notificación.</p>
+
+            <p><b>Mapa 2. Casos confirmados de rabia animal según grupo de especie por departamento. Argentina, SE 1 a SE 22/2025.</b></p>
+            <img src="images/rabia3.jpg" alt="Mapa 2: Casos confirmados de rabia animal por departamento (2025)" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    <div id="modal-rabia-molecular" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>VIGILANCIA MOLECULAR</h3>
+            <p>La vigilancia, prevención y el control de la rabia se basan fundamentalmente en el componente animal, ya que el humano adquiere la enfermedad principalmente a través del contacto con un animal infectado.</p>
+            <p>Los diferentes genotipos del Lyssavirus conforman los denominados ciclos de la rabia (circulación del virus en un determinado ámbito) a partir de sus reservorios naturales.</p>
+            <p>Según las características de los reservorios, estos ciclos se pueden clasificar en terrestres (genotipos adaptados a mamíferos terrestres) y aéreos (genotipos adaptados a mamíferos aéreos: quirópteros -murciélagos hematófagos y no hematófagos, insectívoros y frugívoros-).</p>
+            <p>En función de la distribución geográfica de la enfermedad, los ciclos también pueden clasificarse en ciclos urbanos o ciclos rurales o silvestres</p>
+            <p><b>Figura 1. Transmisión a hospedadores ocasionales entre variantes y ciclos.</b></p>
+            <img src="images/rabia5.jpg" alt="Figura 1: Transmisión a hospedadores ocasionales" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+
+            <p>Dentro del ciclo urbano, el perro es el principal reservorio del ciclo terrestre (variante antigénica 1). Adicionalmente, los murciélagos insectívoros, Tadarida brasiliensis y Lasiurus cinereus, reservorios de las variantes antigénicas 4 (AgV4) y 6 (AgV6) respectivamente, son las especies más abundantes en zonas urbanas.</p>
+            <p>Dentro del ciclo rural, los cánidos silvestres (zorro, aguará guazú, aguará popé) y otros mamíferos silvestres, como el coatí, colaboran en el mantenimiento de la variante antigénica 2 (AgV2), mientras que el murciélago hematófago Desmodus rotundus es el reservorio de las variantes antigénicas 3 (AgV3) y 3a (AgV3a).</p>
+            <p>Los murciélagos actúan como reservorios del ciclo aéreo tanto en ámbitos rurales como urbanos, y especies domésticas como gatos, animales de producción como bovinos y equinos y, en menor medida, otros mamíferos terrestres, pueden funcionar como eslabones entre los ciclos aéreo y terrestre al adquirir variantes mantenidas en quirópteros (fenómeno conocido como spillover).</p>
+            <p>La vigilancia molecular de la rabia en Argentina se basa en la caracterización genética del virus rábico mediante la secuenciación parcial del gen de la nucleoproteína (N), a partir de muestras derivadas en la Red Nacional de Laboratorios de Rabia. Este enfoque permite identificar el reservorio involucrado, establecer el origen de los casos, detectar variantes emergentes o introducidas desde otros territorios, y diferenciar entre ciclos de transmisión urbanos (terrestres), silvestres y aéreos. Además, constituye una herramienta fundamental para guiar estrategias de prevención, vacunación y control ante brotes, así como para la detección temprana de eventos de derrame (spillover) desde fauna silvestre hacia animales domésticos o humanos.</p>
+            <p>Durante el período 2020-2025, se han caracterizado variantes genéticas del virus rábico en muestras provenientes de siete provincias argentinas, lo que ha permitido monitorear los ciclos de transmisión y la dinámica de circulación viral en distintas regiones del país (Tabla 4).</p>
+            <p>Los resultados obtenidos reflejan la coexistencia de ciclos terrestres y aéreos, con evidencia de eventos de spillover hacia hospedadores ocasionales. En el noreste argentino, la variante antigénica 2 (AgV2), asociada al ciclo terrestre, ha mostrado una circulación persistente. En 2020, esta variante fue detectada en un bovino en Corrientes, un aguará popé en Chaco y en un bovino y un canino en Formosa. En 2021 y 2022 se confirmaron nuevos casos en caninos en Formosa, y en 2024 se registraron otras cuatro detecciones (tres en caninos y una en un equino) en Chaco y Formosa. Esta secuencia de hallazgos confirma la existencia de un ciclo enzoótico activo en la región.</p>
+            <p>Por otra parte, a comienzos de 2025, en la provincia de Buenos Aires, se identificó la variante antigénica 4 (AgV4) en un felino doméstico. El análisis filogenético confirmó que se trató de un evento de spillover desde fauna silvestre, específicamente de Tadarida brasiliensis, un murciélago insectívoros. Este hallazgo pone de relieve la importancia de sostener la vigilancia en animales de compañía ante la potencial transmisión desde reservorios aéreos.</p>
+            <p><b>Tabla 4: Resultado caracterización molecular por provincias. 2020-2025</b></p>
+            <img src="images/rabia6.jpg" alt="Tabla 4: Caracterización molecular por provincias (2020-2025)" class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    <!-- FIN NUEVOS MODALES PARA RABIA -->
+
+    <!-- NUEVOS MODALES PARA MONÓXIDO -->
+    <div id="modal-monoxido-historica" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Situación epidemiológica histórica (2019-2024)</h3>
+            <p>Entre los años 2019 y 2024, se notificaron al Sistema Nacional de Vigilancia de la Salud (SNVS 2.0) un total de 9.630 eventos de intoxicación/exposición por monóxido de carbono, de los cuales 6.706 (70%) fueron clasificados como confirmados. La mayor cantidad de los casos confirmados (81%) lo fueron por criterio clínico, seguido por confirmación laboratorial (12%) y, en menor proporción, por nexo epidemiológico (7%). Para todo el periodo se registraron 38 fallecidos distribuidos en todos los años, siendo el 2023 el año con más óbitos (11).</p>
+            <p>Durante el período analizado, los casos de intoxicación por monóxido de carbono mostraron una notificación constante a lo largo del año, con un aumento estacional sostenido entre los meses de abril y septiembre. El mayor número de casos confirmados se registró en julio de 2024, alcanzando un pico en la semana epidemiológica 28 (n=264).</p>
+            <p><b>Gráfico 1: Intoxicación por monóxido de carbono: casos confirmados por semana epidemiológica. 2019-2024, Argentina. (n=6.706). </b></p>
+            <img src="images/mono1.jpg" alt="Gráfico 1: Intoxicación por monóxido de carbono - casos confirmados por semana epidemiológica." class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <p>En cuanto a la distribución por sexo (n=6.644), el 56% corresponde a sexo femenino y el 44% restante a sexo masculino.</p>
+            <p>Respecto a la distribución por edad, el 80% de los casos se concentran en los grupos etarios de 0 a 39 años (Gráfico 2). Dichos grupos presentan una incidencia acumulada superior a la registrada en la población general. La mediana de edad es de 21 años</p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    <div id="modal-monoxido-actual" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>SITUACIÓN EPIDEMIOLÓGICA ACTUAL (2025)</h3>
+            <p>Durante 2025, hasta la SE 26, se notificaron 642 casos confirmados. El 68% de estos se confirmó por criterio clínico, el 21% por laboratorio y el resto por criterio epidemiológico. En cuanto a la distribución por sexo se mantiene como en los años previos, mientras que en cuanto a la edad, se observa que el grupo de edad de 20 a 29 es el más afectado (n=135), seguido del grupo de 0 a 9 años (n=121). En el año en curso se registraron 4 casos fallecidos en el SNVS 2.0 dentro del evento intoxicación por monóxido de carbono. </p>
+            <p>En la tabla 2 se observa que, tanto a nivel nacional como en las regiones de Cuyo y Sur, el índice epidémico acumulado se encuentra en el valor esperado, mientras que en la región Centro, el mismo supera el valor esperado y en NOA es inferior. En la región del NEA no se puede calcular por no tener casos notificados.</p>
+            <p><b>Tabla 2. Intoxicación por monóxido de carbono: casos por jurisdicción y año e índice epidémico, Argentina. SE 1 a 26 de 2020 a 2025 (n=3.411). </b></p>
+            <img src="images/mono2.jpg" alt="Tabla 2: Intoxicación por monóxido de carbono - casos por jurisdicción y año e índice epidémico." class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <p>A partir de la construcción del corredor endémico cuatrisemanal se observa que los casos de 2025 se encuentran en la zona de alerta, encontrándose en brote entre las semanas epidemiológicas 1 a 8 y 13 a 16 (Gráfico 4).</p>
+            <p><b>Gráfico 4. Corredor endémico cuatrisemanal de casos confirmados de intoxicación por monóxido de carbono. Argentina, periodo 2019 - SE 24/2025</b></p>
+            <img src="images/mono3.jpg" alt="Gráfico 4: Corredor endémico cuatrisemanal de casos confirmados de intoxicación por monóxido de carbono." class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+
+            <p>De acuerdo con los corredores endémicos acumulados por región se observa que, las regiones de Centro, Sur y Cuyo se encuentran en la zona de alerta de acuerdo al registro de casos de los 5 años previos, observándose para las regiones de Centro y Sur algunas semanas epidemiológicas en brote (1 a 8). La región del NOA se encuentra en zona de seguridad en todo el periodo (Gráfico 5).</p>
+
+            <p><b>Gráfico 5. Corredores endémicos cuatrisemanales de casos confirmados de intoxicación por monóxido de carbono por región. Argentina, periodo 2019 - SE24/2025</b></p>
+            <img src="images/mono4.jpg" alt="Gráfico 5: Corredores endémicos cuatrisemanales de casos confirmados de intoxicación por monóxido de carbono por región." class="content-image" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Imagen+no+disponible';">
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    <div id="modal-monoxido-preventivas" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>MEDIDAS PREVENTIVAS</h3>
+            <p>Para prevenir la intoxicación por monóxido de carbono es elemental el control de las instalaciones y el buen funcionamiento de artefactos, así como es importante mantener los ambientes bien ventilados.</p>
+            <p>El ENARGAS impulsa medidas tales como: </p>
+            <ul>
+                <li>Campañas publicitarias y educativas de prevención</li>
+                <li>Incorporación de nuevos dispositivos de seguridad en los artefactos de gas: en los calefactores sin chimenea el piloto analizador de atmósfera y en todos los artefactos con chimenea, piloto analizador de atmósfera o sensor de temperatura en zonas de gases de combustión.</li>
+                <li>Revisión periódica de los artefactos a gas por personal matriculado a través de diferentes resoluciones: la verificación durante las revisiones de funcionamiento de los artefactos, la calidad de la llama, los conductos de evacuación de los productos de la combustión y las aberturas para reposición de aire, además de la correcta ubicación de los artefactos.</li>
+                <li>Inspección de seguridad en las escuelas</li>
+            </ul>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    <!-- FIN NUEVOS MODALES PARA MONÓXIDO -->
+
+
     <footer class="main-footer">
         <p>&copy; 2025 Boletín Epidemiológico Nacional. Todos los derechos reservados.</p>
     </footer>
 
-    <script type="module" src="js/gsap-animations.js"></script> 
-    <script type="module" src="js/main.js"></script>
-    <script src="js/charts.js"></script>
-    <script src="js/maps.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

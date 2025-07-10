@@ -1,21 +1,11 @@
 /* General Body Styles */
-html, body {
-    height: 100%; /* Asegura que html y body ocupen toda la altura de la ventana */
-    margin: 0;
-    padding: 0;
-}
-
 body {
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
     background-color: #f4f4f4; /* Gris claro de fondo */
     color: #333; /* Color de texto general */
     line-height: 1.6;
-
-    /* PROPIEDADES AGREGADAS/MODIFICADAS PARA EL STICKY FOOTER */
-    display: flex; /* Convierte el body en un contenedor flex */
-    flex-direction: column; /* Apila los elementos (header, content, footer) verticalmente */
-    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura de la vista */
-    /* Puedes probar con min-height: 100dvh; para mejor comportamiento en algunos móviles si 100vh da problemas con barras de dirección. */
 }
 
 /* Main Header */
@@ -103,10 +93,6 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-
-    /* PROPIEDAD AGREGADA PARA EL STICKY FOOTER */
-    flex: 1; /* Permite que este contenedor crezca y ocupe todo el espacio restante */
-    overflow: auto; /* Mantiene el scroll si el contenido es muy largo */
 }
 
 /* Individual Boletin Pages (managed by JS) */
@@ -214,7 +200,7 @@ body {
 }
 
 .more-info-btn:hover {
-    background-color: #4A8C8A; /* Un verde ligeramente más oscuro para hover */
+    background-color: #4A8C8A; /* Verde ligeramente más oscuro para hover */
     transform: translateY(-2px); /* Pequeño efecto al pasar el ratón */
 }
 
@@ -314,9 +300,7 @@ body {
     text-align: center;
     padding: 15px;
     font-size: 0.9em;
-    /* PROPIEDADES MODIFICADAS/AGREGADAS PARA EL STICKY FOOTER */
-    margin-top: auto; /* Esta propiedad empuja el footer hacia abajo en un contenedor flex-column */
-    flex-shrink: 0; /* Asegura que el footer no se encoja */
+    margin-top: 30px;
 }
 
 /* Responsive Adjustments */
@@ -338,12 +322,11 @@ body {
     #main-nav {
         flex-direction: column; /* Apila los botones de navegación */
         gap: 5px;
-        align-items: center; /* AGREGADO para centrar los elementos horizontalmente en modo columna */
     }
 
     .nav-button {
         width: 90%; /* Botones de navegación de ancho completo */
-        margin: 0 auto; /* Ayuda a asegurar el centrado individual si flex no es suficiente */
+        margin: 0 auto;
     }
 
     #content-container {
@@ -378,10 +361,3 @@ body {
     height: 100%;
     border: none; /* Eliminar el borde predeterminado del iframe */
 }
-
-/* Estilo para la imagen de fondo de la sección de Inicio */
-#inicio.boletin-page {
-    background-image: url('../images/portada.jpg'); /* La ruta a tu imagen desde style.css */
-    background-size: cover; /* Ajusta la imagen para cubrir toda la sección */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen en la sección */}
