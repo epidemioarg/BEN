@@ -381,7 +381,8 @@ body {
 
 /* Estilo para la imagen de fondo de la sección de Inicio */
 #inicio.boletin-page {
-    background-image: url('../images/portada.jpg'); /* La ruta a tu imagen desde style.css */
+    background-image: url('/images/portada.jpg'); /* La ruta a tu imagen desde style.css (corregida) */
     background-size: cover; /* Ajusta la imagen para cubrir toda la sección */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen en la sección */}
+    background-position: center; /* Centra la imagen en la sección */
+}
