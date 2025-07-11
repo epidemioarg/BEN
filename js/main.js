@@ -1,38 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navButtons = document.querySelectorAll('#main-nav .nav-button');
     const contentContainer = document.getElementById('content-container');
-    // Ya tienes modalOverlays y closeModalButtons definidos, los usaremos
     const modalOverlays = document.querySelectorAll('.modal-overlay');
     const closeModalButtons = document.querySelectorAll('.close-modal-btn');
-    const body = document.body; // Definimos el body para controlar el scroll
+    const currentWeekNumberSpan = document.getElementById('current-week-number');
 
-    // --- FUNCIONES PARA MANEJAR MODALES (AGREGADAS) ---
+    // Function to calculate the epidemiological week number (Sunday as first day)
+    const getWeekNumber = (d) => {
+        // Copy date so don't modify original
+        d = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+        // Set to nearest Sunday: current date + (4 - current day number)
+        // Adjust for Sunday being 0, Monday 1, etc.
+        d.setUTCDate(d.getUTCDate() + 4 - (d.getUTCDay() || 7));
+        // Get first day of year
+        const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+        // Calculate full weeks to nearest Sunday
+        const weekNo = Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+        return weekNo;
+    };
 
-    // Función para abrir un modal
-    function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-            modal.classList.add('active'); // Muestra el modal (CSS visibility/opacity)
-            modal.classList.remove('hidden'); // Asegura que display no sea none
-            body.classList.add('modal-open'); // Evita el scroll del body
-        }
+    // Update the current week number in the header
+    if (currentWeekNumberSpan) {
+        const today = new Date();
+        currentWeekNumberSpan.textContent = getWeekNumber(today);
     }
-
-    // Función para cerrar un modal
-    function closeModal(modalElement) {
-        if (modalElement) {
-            modalElement.classList.remove('active'); // Oculta el modal (CSS visibility/opacity)
-            // Espera a que termine la transición de opacidad antes de ocultar completamente
-            modalElement.addEventListener('transitionend', function handler() {
-                modalElement.classList.add('hidden'); // Oculta completamente con display: none
-                modalElement.removeEventListener('transitionend', handler);
-            }, { once: true }); // Ejecutar solo una vez
-            body.classList.remove('modal-open'); // Permite el scroll del body
-        }
-    }
-
-    // --- FIN FUNCIONES PARA MANEJAR MODALES ---
-
 
     // Función para cargar contenido dinámicamente
     const loadContent = async (pageName) => {
@@ -49,12 +40,15 @@ document.addEventListener('DOMContentLoaded', () => {
             initializePageSpecificScripts(pageName);
             
             // Reasignar eventos a botones de "Más Información" si existen en el nuevo contenido
-            // MODIFICADO: Ahora usa la función openModal
             const moreInfoBtns = contentContainer.querySelectorAll('.more-info-btn');
             moreInfoBtns.forEach(btn => {
-                btn.onclick = () => { // Mantenemos .onclick como lo tenías para los elementos dinámicos
+                btn.onclick = () => {
                     const modalId = btn.dataset.modal;
-                    openModal(modalId); // Llama a la nueva función openModal
+                    const modal = document.getElementById(modalId);
+                    if (modal) {
+                        modal.classList.add('active');
+                        modal.classList.remove('hidden');
+                    }
                 };
             });
 
@@ -103,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
             case 'dengue':
                 // Código para inicializar el mapa de Dengue
-                let dengueMapDiv = document.getElementById('dengueMap'); // Usar 'let' para poder reasignar
+                const dengueMapDiv = document.getElementById('dengueMap');
                 if (dengueMapDiv) {
                     // Asegúrate de que el mapa no se inicialice múltiples veces
                     if (dengueMapDiv._leaflet_id) {
@@ -112,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         newDengueMapDiv.id = 'dengueMap';
                         newDengueMapDiv.className = 'placeholder-map';
                         document.querySelector('.boletin-page[id="dengue"] .chart-wrapper').appendChild(newDengueMapDiv);
-                        dengueMapDiv = newDengueMapDiv; // Reasignar la referencia al nuevo div
+                        dengueMapDiv = newDengueMapDiv;
                     }
                     
                     const map = L.map('dengueMap').setView([-34.6037, -58.3816], 5); // Coordenadas de Argentina
@@ -172,20 +166,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Manejador de eventos para cerrar modales (MODIFICADO: Ahora usa la función closeModal)
+    // Manejador de eventos para cerrar modales
     closeModalButtons.forEach(button => {
         button.addEventListener('click', () => {
             const modal = button.closest('.modal-overlay');
-            closeModal(modal); // Llama a la nueva función closeModal
-        });
-    });
-
-    // Cierra el modal si se hace clic fuera del contenido del modal (AGREGADO)
-    modalOverlays.forEach(overlay => {
-        overlay.addEventListener('click', (event) => {
-            // Si el clic fue directamente en el overlay y no en el modal-content
-            if (event.target === overlay) {
-                closeModal(overlay);
+            if (modal) {
+                modal.classList.remove('active');
+                modal.classList.add('hidden');
             }
         });
     });

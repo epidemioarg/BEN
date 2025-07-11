@@ -1,23 +1,11 @@
-/* Importar la fuente Lora */
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
-
-/* Estilos Generales */
-html, body {
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    /* Eliminado height: 100% de html, body para evitar posibles conflictos en móviles */
-}
-
-body {
-    font-family: 'Lora', serif; /* Aplicada la fuente Lora */
     background-color: #f4f4f4; /* Gris claro de fondo */
     color: #333; /* Color de texto general */
     line-height: 1.6;
-
-    /* Propiedades de flexbox para sticky footer eliminadas para evitar problemas en móvil */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* min-height: 100vh; */
 }
 
 /* Main Header */
@@ -105,10 +93,6 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-
-    /* Propiedades de flexbox eliminadas */
-    /* flex: 1; */
-    /* overflow: auto; */
 }
 
 /* Individual Boletin Pages (managed by JS) */
@@ -166,30 +150,6 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Estilo para la imagen de portada que ahora es inline */
-.portada-inline-image {
-    float: left; /* Hace que la imagen flote a la izquierda */
-    margin-right: 20px; /* Espacio a la derecha de la imagen */
-    margin-bottom: 10px; /* Espacio debajo de la imagen */
-    max-width: 300px; /* Ancho máximo para la imagen */
-    height: auto; /* Mantiene la proporción */
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-/* Ajuste para la imagen inline en pantallas pequeñas */
-@media (max-width: 600px) {
-    .portada-inline-image {
-        float: none; /* Elimina la flotación */
-        margin-right: 0;
-        max-width: 100%; /* Ocupa todo el ancho disponible */
-        display: block; /* Asegura que ocupe su propia línea */
-        margin-left: auto; /* Centra la imagen */
-        margin-right: auto; /* Centra la imagen */
-    }
-}
-
-
 /* Chart and Map Placeholders (Optional Styling) */
 .chart-wrapper {
     position: relative;
@@ -240,7 +200,7 @@ body {
 }
 
 .more-info-btn:hover {
-    background-color: #4A8C8A; /* Un verde ligeramente más oscuro para hover */
+    background-color: #4A8C8A; /* Verde ligeramente más oscuro para hover */
     transform: translateY(-2px); /* Pequeño efecto al pasar el ratón */
 }
 
@@ -340,8 +300,7 @@ body {
     text-align: center;
     padding: 15px;
     font-size: 0.9em;
-    margin-top: 30px; /* Margen fijo como en stylebueno.css */
-    /* flex-shrink: 0; Eliminado */
+    margin-top: 30px;
 }
 
 /* Responsive Adjustments */
@@ -363,12 +322,11 @@ body {
     #main-nav {
         flex-direction: column; /* Apila los botones de navegación */
         gap: 5px;
-        align-items: center; /* Centra los elementos horizontalmente en modo columna */
     }
 
     .nav-button {
         width: 90%; /* Botones de navegación de ancho completo */
-        margin: 0 auto; /* Ayuda a asegurar el centrado individual si flex no es suficiente */
+        margin: 0 auto;
     }
 
     #content-container {
@@ -382,7 +340,8 @@ body {
     }
 }
 
-/* Estilos para la sección de Base de Conocimiento y Iframe (mantener) */
+/* NUEVOS ESTILOS PARA LA SECCIÓN DE BASE DE CONOCIMIENTO Y IFRAME */
+/* Los puse aquí al final para que los veas claramente */
 .content-wrapper {
     max-width: 1200px; /* Ancho máximo del contenido */
     margin: 20px auto; /* Centrar y dar espacio */
