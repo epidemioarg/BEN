@@ -1,5 +1,6 @@
-/* Importar la fuente Lora */
+/* Importar las fuentes Lora y Montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap'); /* Nueva importación */
 
 /* Estilos Generales */
 html, body {
@@ -9,15 +10,11 @@ html, body {
 }
 
 body {
-    font-family: 'Lora', serif; /* Aplicada la fuente Lora */
+    font-family: 'Lora', serif; /* Aplicada la fuente Lora a todo el cuerpo */
     background-color: #f4f4f4; /* Gris claro de fondo */
     color: #333; /* Color de texto general */
     line-height: 1.6;
-
-    /* Propiedades de flexbox para sticky footer eliminadas para evitar problemas en móvil */
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* min-height: 100vh; */
+    /* Las propiedades flexbox para el sticky footer se eliminaron para evitar problemas en móvil */
 }
 
 /* Main Header */
@@ -85,6 +82,8 @@ body {
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease;
+    font-family: 'Montserrat', sans-serif; /* Aplicada la fuente Montserrat */
+    font-weight: 700; /* Negrita para que resalte */
 }
 
 .nav-button:hover {
@@ -105,15 +104,13 @@ body {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-
-    /* Propiedades de flexbox eliminadas */
-    /* flex: 1; */
-    /* overflow: auto; */
+    /* No se usa flex: 1; ni overflow: auto; aquí para evitar el problema del footer */
 }
 
 /* Individual Boletin Pages (managed by JS) */
 .boletin-page {
     padding: 10px 0;
+    overflow: auto; /* Importante para contener los elementos flotantes */
 }
 
 .boletin-page.hidden {
@@ -128,7 +125,7 @@ body {
     padding-bottom: 10px;
 }
 
-.boletin-page h3 {
+.boletin-page h3 { /* Mantengo h3 por si lo usas en otras secciones */
     color: #5DABA9; /* Verde institucional */
     font-size: 1.5em;
     margin-top: 25px;
@@ -156,6 +153,7 @@ body {
     margin-bottom: 0.5em;
 }
 
+/* Estilo general para imágenes de contenido (no la de portada ni firma) */
 .content-image {
     max-width: 100%; /* Asegura que las imágenes no desborden */
     height: auto; /* Mantiene la proporción */
@@ -166,18 +164,27 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Estilo para la imagen de portada que ahora es inline */
+/* Estilo específico para la imagen de portada (ahora inline) */
 .portada-inline-image {
     float: left; /* Hace que la imagen flote a la izquierda */
     margin-right: 20px; /* Espacio a la derecha de la imagen */
     margin-bottom: 10px; /* Espacio debajo de la imagen */
-    max-width: 300px; /* Ancho máximo para la imagen */
+    max-width: 400px; /* Ancho máximo para la imagen (un poco más grande) */
     height: auto; /* Mantiene la proporción */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* Ajuste para la imagen inline en pantallas pequeñas */
+/* Estilo específico para la imagen de firma */
+.firma-image {
+    max-width: 60%; /* Reduce el tamaño de la imagen de firma */
+    margin-left: auto; /* Centra la imagen */
+    margin-right: auto; /* Centra la imagen */
+    display: block; /* Asegura que ocupe su propia línea */
+    margin-top: 20px; /* Espacio superior para separarla del texto */
+}
+
+/* Ajustes para imágenes inline en pantallas pequeñas */
 @media (max-width: 600px) {
     .portada-inline-image {
         float: none; /* Elimina la flotación */
@@ -187,8 +194,10 @@ body {
         margin-left: auto; /* Centra la imagen */
         margin-right: auto; /* Centra la imagen */
     }
+    .firma-image {
+        max-width: 80%; /* Permite que sea un poco más grande en móviles si es necesario */
+    }
 }
-
 
 /* Chart and Map Placeholders (Optional Styling) */
 .chart-wrapper {
@@ -341,7 +350,6 @@ body {
     padding: 15px;
     font-size: 0.9em;
     margin-top: 30px; /* Margen fijo como en stylebueno.css */
-    /* flex-shrink: 0; Eliminado */
 }
 
 /* Responsive Adjustments */
