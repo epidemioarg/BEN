@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletín Epidemiológico Nacional</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "seu4cmqz3d");
+</script>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <!-- Contenedor para el logo y el texto del encabezado -->
+            <div class="header-info">
+                <img src="images/LOGO.png" alt="Logo Institucional" class="header-logo">
+                <div class="header-text">
+                    <h1>BOLETÍN EPIDEMIOLÓGICO NACIONAL</h1>
+                    <h2>N° 763 - Semana Epidemiológica 26 - Año 2025</h2>
+                    <p>Desde 22/06 al 28/06 - Fecha de publicación: 07/07/2025</p>
+                    
+                    <p><strong>Semana epidemiológica actual: <span id="current-week-number"></span></strong></p>
+                </div>
+            </div>
+            
+            <!-- Botón de descarga PDF -->
+            <a href="https://www.argentina.gob.ar/sites/default/files/2025/01/ben_763_se_26.pdf" target="_blank" class="download-btn">
+                Descargar PDF <br> BEN 763
+            </a>
+        </div>
+        <nav id="main-nav">
+            <button class="nav-button active" data-page="inicio">Inicio</button> 
+            <button class="nav-button" data-page="sarampion">Sarampión</button>
+            <button class="nav-button" data-page="respiratorias">Respiratorias</button> <!-- Sección Respiratorias -->
+            <button class="nav-button" data-page="rabia">Rabia</button>             <!-- Sección Rabia -->
+            <button class="nav-button" data-page="monoxido">Monóxido de carbono</button>         <!-- Sección Monóxido -->
+           <!--  <button class="nav-button" data-page="basedeconocimiento">Base de Conocimiento</button> -->
+            <button class="nav-button" data-page="autoridades">Autoridades</button>
+        </nav>
+    </header>
+
+    <main id="content-container">
+        <!-- El contenido de las páginas se cargará aquí dinámicamente por JavaScript -->
+        <!-- La sección de inicio ya no tendrá el estilo de fondo inline aquí, se manejará desde style.css -->
+    </main>
+
+    <!-- Modales existentes -->
+    <div id="modal-sarampion-vacunacion" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Vacunación contra el Sarampión: Esquemas y Recomendaciones</h3>
+            <p>Aquí puedes añadir detalles sobre el calendario de vacunación, la importancia de la doble o triple viral, quiénes deben vacunarse, etc. Puedes incluir texto, listas, imágenes, etc.</p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <div id="modal-dengue-prevencion" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Prevención y Síntomas del Dengue</h3>
+            <p>Aquí aparecería la información detallada al hacer clic en "Más Info" para Dengue. Puedes poner texto, imágenes o incluso otros gráficos aquí dentro.</p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <div id="modal-hantavirus-sintomas" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Síntomas del Hantavirus</h3>
+            <p>Información adicional sobre los síntomas, tratamientos o medidas de precaución para Hantavirus.</p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <div id="modal-influenza-vacunacion" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Importancia de la Vacunación contra Influenza</h3>
+            <p>Detalles sobre la campaña de vacunación, grupos de riesgo y beneficios de la vacuna contra la Influenza.</p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <!-- MODALES PARA SARAMPIÓN -->
+    <div id="modal-sarampion-actual" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Sobre el Sarampión</h3>
+            <p>El sarampión es una enfermedad viral, <b>altamente contagiosa</b>, que puede presentarse en todas las edades. Su gravedad es mayor en niños menores de 5 años o desnutridos, en los cuales puede causar graves complicaciones respiratorias como neumonía y del sistema nervioso central como convulsiones, meningoencefalitis, ceguera, encefalomielitis postinfecciosa con retraso mental grave y trastornos degenerativos tardíos que no tienen tratamiento o incluso causar la muerte.</p>
+            <p>Se transmite mediante gotas de aire de la nariz, boca, o garganta de una persona infectada. <b>El virus puede persistir en el aire o sobre superficies, siendo activo y contagioso por 2 horas.</b></p>
+            <p>No existe ningún tratamiento antiviral específico contra el virus del sarampión, solo existen medidas de sostén clínico y de sus complicaciones. Puede prevenirse con la <b>vacunación</b>.</p>
+    
+            <p>Se enfatiza la importancia de la vacunación como medida preventiva clave. Se recomienda a la población verificar su estado de vacunación y completar los esquemas.</p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <div id="modal-sarampion-prevencion" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Medidas de prevención</h3>
+            <p>Todas las personas desde el año de vida deben tener esquema de vacunación completo contra el sarampión y la rubéola, según Calendario Nacional de Vacunación: </p>
+            <p>De 12 meses a 4 años: deben acreditar UNA DOSIS de vacuna triple viral.</p>
+            <p>Niños de 5 años y más, adolescentes y personas adultas deben acreditar al menos DOS DOSIS de vacuna con componente contra sarampión y rubéola aplicada después del año de vida (doble o triple viral) o contar con serología IgG positiva para sarampión y rubéola.</p>
+            <p>Las personas nacidas antes de 1965 se consideran inmunes y no necesitan vacunarse. </p>
+            <p>El antecedente de vacunación se deberá constatar a través del registro nominal de vacunación o por presentación del carnet de vacunación donde conste el esquema completo para sarampión y la rubéola, según Calendario Nacional de Vacunación.</p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    <!-- FIN MODALES PARA SARAMPIÓN -->
+
+    <!-- NUEVOS MODALES PARA RESPIRATORIAS -->
+    <div id="modal-respiratorias-clinica" class="modal-overlay hidden">
+        <div class="modal-content">
+        <h3>Sobre Bronquiolitis</h3>
+        <p>La bronquiolitis es un síndrome clínico caracterizado por síntomas de la
+        vía aérea superior que evoluciona a una afectación del tracto respiratorio
+        inferior con signos de obstrucción de la vía aérea periférica. Es una
+        enfermedad con significativa morbilidad que afecta principalmente a
+        niña/os menores de 2 años con una mayor incidencia entre los 3-6
+        meses. Es generalmente estacional y ocurre en los meses de otoño e
+        invierno, aunque pueden existir variaciones regionales.</p>
+        <p>Aproximadamente uno de cada 3 niña/os desarrollan bronquiolitis en el
+        primer año de vida, un 3% requieren hospitalización y un 2-6% ingreso a
+        terapia intensiva. Estas cifras pueden variar según la presencia de
+        factores de riesgo, así como la progresión a enfermedad severa. En
+        niña/os prematuros con ≤32 semanas de edad gestacional la frecuencia
+        de internación se encuentra entre 4,4 y 18%, en niña/os con displasia
+        broncopulmonar puede alcanzar un 25% y en cardiópatas se sitúa entre
+        1,6 y 9,8%. La mortalidad en niña/os sin condiciones subyacentes es
+        menor al 1%, aunque en aquellos con factores de riesgo puede verse
+        considerablemente incrementada.<p>
+
+        <h3>Sobre ETI</h3>
+        <p>Las infecciones respiratorias agudas son comúnmente causadas por
+        Influenza y otros virus respiratorios. Ocurren durante todo el año con
+        picos epidémicos durante los meses de invierno en regiones de clima
+        templado. Esto se traduce en un incremento en la demanda de atención
+        en las guardias de emergencia y consultas ambulatorias.</p>
+        <p>Debido a la importante carga de morbilidad que presenta la enfermedad
+        por virus influenza se han establecido estrategias para el monitoreo
+        permanente de la misma que permitan adoptar medidas de prevención y
+        control oportunas y adecuadas. En pacientes ambulatorios estas
+        estrategias son la vigilancia nacional y la vigilancia centinela de la
+        Enfermedad Tipo Influenza (ETI).</p>
+        <p>La vigilancia epidemiológica sistemática de las IRAs es importante para
+        detectar precozmente el ascenso estacional en el número de casos en
+        cualquier periodo del año y zona geográfica.</p>
+        <p>Por otro lado, las infecciones respiratorias emergentes conllevan un
+        importante riesgo para la población debido a su elevado potencial de
+        transmisión de persona a persona. La vigilancia epidemiológica de las
+        IRAs permite además la detección oportuna de eventos inusitados
+        desencadenados por virus respiratorios con potencial pandémico que
+        pongan en peligro la salud global.</p>
+        <p>Adicionalmente, la estrategia de vigilancia centinela de ETI ha sido
+        evaluada como una manera eficaz de recopilar datos oportunos y de buena calidad siendo costo-efectiva para cumplir con los objetivos de la
+        vigilancia e informar decisiones en salud.</p>
+
+        <h3>Sobre Neumonía</h3>
+        <p>La neumonía es una infección del parénquima pulmonar que conlleva
+        importante morbi-mortalidad particularmente en niña/os menores de 5
+        años, personas adultas mayores de 65 años y aquellas con ciertas
+        condiciones subyacentes. Es la principal causa infecciosa de muerte en
+        niña/os a nivel global. En Argentina, junto con Influenza, constituyen la
+        tercera causa principal de defunción en toda la población.</p>
+        <p>En pacientes adultos la incidencia de neumonía se incrementa con la
+        edad. En estudios realizados en América Latina se ha estimado que la
+        incidencia varía entre 4,8 y 110 / 10.000 personas-año en personas de 18-
+        64 años y 109-294 / 10.000 personas-año en los mayores de 65 años. Se
+        ha reportado una mortalidad en esta población de un 5-15% en pacientes
+        hospitalizados incrementándose a un 20% en aquellos que requieren
+        ingreso a cuidados intensivos.</p>
+        <p>Streptococcus pneumoniae es una causa frecuente de otitis, sinusitis y
+        neumonía, pudiendo ocasionar también infecciones invasivas como
+        neumonía bacteriemia, bacteriemia con sepsis, meningitis, entre otras. Se
+        estima que S. pneumoniae causó 8.9 millones de casos de neumonía en el
+        2015, de los cuales 3.5 millones fueron graves o muy graves. Es el segundo
+        agente que causa neumonía con requerimiento de hospitalización luego
+        del VSR y el primero en número de muertes: aproximadamente 300 mil
+        muertes anuales en menores de 5 años a nivel mundial.</p>
+        <p>Con la introducción de la vacuna antineumocócica en varios países,
+        globalmente ha sido estimado que las neumonías por el neumococo se
+        han reducido en más de un tercio y las muertes por infecciones
+        neumocócica en 51% del 2000 al 2015.</p>
+        <p>La susceptibilidad a la infección por el neumococo es más frecuente entre
+        los 2 meses y los 3 años, declina después de los 18 meses de edad y vuelve
+        a aumentar después de los 65 años. Otras condiciones que aumentan el
+        riesgo de contraer una infección por neumococo son el hacinamiento, las
+        condiciones deficientes de vivienda, la exposición activa o pasiva al humo
+        del tabaco, las infecciones concurrentes de las vías respiratorias
+        superiores y ciertas condiciones crónicas subyacentes.</p>
+        <p>La vigilancia sistemática de este evento permite detectar de manera
+        precoz el ascenso estacional en el número de casos en cualquier periodo
+        del año y zona geográfica. Permite además la detección de eventos
+        inusitados causados por agentes virales con potencial pandémico que
+        afectan a la población a escala global.</p> 
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+
+    <div id="modal-respiratorias-universal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>MEDIDAS PREVENTIVAS</h3>
+<h3>Recomendaciones ante el aumento de casos de influenza y la circulación de virus respiratorios</h3>
+
+<p>Ante el aumento de casos de influenza en el país, con co-circulación del virus influenza tipo A —predominantemente A(H1N1)—, SARS-CoV-2, virus sincicial respiratorio (VSR) y otros virus respiratorios en distintas jurisdicciones, el Ministerio de Salud de la Nación insta a los equipos de salud a fortalecer las siguientes acciones fundamentales:</p>
+<ul>
+<li>	Reforzar la vigilancia epidemiológica de infecciones respiratorias agudas.</li>
+<li>	Sostener un alto nivel de sospecha clínica para facilitar la detección precoz de casos.</li>
+<li>	Aplicar y mantener medidas eficaces de prevención y control de infecciones.</li>
+</ul>
+<h3> Recomendaciones para la población general</h3>
+<ul>
+<li>	Garantizar la actualización de los esquemas de vacunación contra influenza, SARS-CoV-2, neumococo, Haemophilus influenzae tipo B, Bordetella pertussis y virus sincicial respiratorio, de acuerdo con las recomendaciones del Ministerio de Salud.</li>
+<li>	Realizar lavado frecuente de manos con agua y jabón.</li>
+<li>	Cubrirse la boca y la nariz con el pliegue del codo al toser o estornudar.</li>
+<li>	Evitar compartir objetos personales, como vasos, cubiertos u otros utensilios.</li>
+<li>	Limpiar y desinfectar regularmente las superficies en contacto con personas enfermas, utilizando agua y detergente, jabón o soluciones con alcohol al 70%.</li>
+<li>	Ventilar adecuadamente los ambientes, especialmente en espacios cerrados.</li>
+<li>	Las personas con síntomas respiratorios deben evitar el contacto con otras personas y restringir las interacciones lo más posible hasta presentar mejoría clínica y haber transcurrido al menos 24 horas sin fiebre (sin uso de antitérmicos).</li>
+<li>	Para mayor información consultar: https://www.argentina.gob.ar/sites/default/files/guia_para_la_vigilancia_prevencion_y_control_ira-2024.pdf </li> 
+</ul>
+<h3>Vacunación antigripal</h3>
+
+<p>La vacunación antigripal incorporada al Calendario Nacional de vacunación a partir del año 2011 tiene como objetivo reducir las complicaciones, hospitalizaciones, muertes y secuelas de la infección por virus influenza en los grupos poblacionales de alto riesgo para el desarrollo de enfermedad complicada.
+En el actual contexto epidemiológico, se insta a los equipos de salud a fortalecer la vacunación antigripal a las personas de los grupos poblacionales que se detallan a continuación, que no hayan recibido la vacuna este año. Recordar que la vacunación antigripal administrada en forma oportuna es una medida preventiva sustancial para evitar el desarrollo de complicaciones relacionadas con la influenza.</p>
+
+<h3>Población objetivo para vacunación antigripal</h3>
+<ul>
+<li>	Personal de salud.
+<li>	Personas embarazadas: en cada embarazo y en cualquier trimestre
+<li>	Personas puérperas: hasta el egreso de la maternidad –máximo 10
+<li>	días-, si no recibiera la vacuna durante el embarazo.
+<li>	Entre los 6 a 24 meses de edad: Esquema de dos dosis, si no las
+<li>	recibieron anteriormente.
+<li>	Entre los 2 y 64 años que tengan factores de riesgo: con
+<li>	documentación que acredite la existencia de enfermedades
+<li>	preexistentes incluidas entre los factores de riesgo.
+<li>	65 años y mayores: no se requiere indicación médica para recibir la
+<li>	VACUNA ANTIGRIPAL. Como oportunidad, evaluar VACUNA CONTRA
+<li>	NEUMOCOCO y aplicar si corresponde.
+<li>	Personal Estratégico, cuyo desempeño es clave para mantener las
+<li>	funciones esenciales (ej. fuerzas de seguridad del Estado).
+</ul>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    <!-- FIN NUEVOS MODALES PARA RESPIRATORIAS -->
+
+    <!-- NUEVOS MODALES PARA RABIA -->
+    <div id="modal-rabia-preventivas" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>MEDIDAS PREVENTIVAS</h3>
+            <ul>
+                <li>Vacunación antirrábica (profilaxis pre-exposición) en aquellos grupos humanos con alto riesgo de exposición al virus rábico, ya sea por motivos laborales o recreacionales.</li>
+                <li>La persona que sufre un Accidente Potencialmente Rábico (APR) debe, antes de concurrir al efector de salud, proceder, lo más rápido posible, a la limpieza de la herida con abundante agua corriente y jabón.</li>
+                <li>Concurrir inmediatamente al efector de salud ante la ocurrencia de un accidente potencialmente rábico para recibir el tratamiento que corresponda (profilaxis post- exposición)</li>
+                <li>Vacunación antirrábica en animales domésticos de compañía.</li>
+                <li>Control poblacional: tenencia responsable de animales de compañía (perros y gatos). Esterilización quirúrgica a hembras y machos.</li>
+                <li>Educación para la salud en relación a la prevención de rabia.</li>
+                <li>Legislación para la importación de animales tanto por vía aérea como terrestre.</li>
+            </ul>
+            <h4>Vacunación antirrábica</h4>
+            <p>La vacunación antirrábica es de carácter obligatorio en perros y gatos (Ley Antirrábica 22.953) e incluye una primovacunación a los 3 meses de edad y revacunaciones anuales durante toda la vida del animal. La vacunación de los animales de importancia económica (bovinos, equinos, ovejas, entre otros) contra la rabia es voluntaria, excepto en las siguientes situaciones, en que la vacunación es obligatoria: frente a la aparición de un caso confirmado de rabia paresiante (vacunación de emergencia) y dentro del área endémica, en los siguientes animales y tipos de establecimiento:</p>
+            <ul>
+                <li>Establecimientos de engorde a corral: vacunación de los animales a su ingreso.</li>
+                <li>Cabañas y haras: vacunación de los animales que se envían a exposiciones o remates: dos dosis, la primera entre 80 y 60 días y la segunda entre 50 y 30 días antes del traslado o remate.</li>
+                <li>Herbívoros utilizados para deportes (jineteadas, carreras, polo, salto, entre otros).</li>
+            </ul>
+            <h4>Otras medidas</h4>
+            <ul>
+                <li>Control poblacional de perros y gatos mediante la esterilización quirúrgica.</li>
+                <li>Educación para la salud sobre prevención de la rabia.</li>
+                <li>Legislación para la importación de animales.</li>
+                <li>Fortalecimiento de las estructuras de vigilancia de campo, de laboratorio y de control de las poblaciones de murciélagos hematófagos.</li>
+                <li>Ejecución de medidas de control de las movilizaciones y de la cuarentena de los animales</li>
+            </ul>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    
+    <div id="modal-rabia-actual" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Sobre la rabia</h3>
+            <p>La rabia es una zoonosis viral que afecta al sistema nervioso central de todos los mamíferos, incluidos los seres humanos, y se caracteriza por una letalidad cercana al 100%. La relevancia de esta enfermedad para la salud pública, tanto en Argentina como a nivel mundial, radica justamente en su alta letalidad y en el hecho de que existen herramientas eficaces para su prevención, tanto en animales como en personas.</p>
+            <p>En Argentina, la implementación sostenida de estrategias de vigilancia, control e inmunización ha permitido una reducción significativa de los casos de rabia animal. Sin embargo, la persistencia del virus en reservorios silvestres —particularmente en murciélagos— en todo el territorio nacional y en algunos ciclos terrestres en el norte del país evidencia la necesidad de mantener y fortalecer la vigilancia epidemiológica.</p> 
+            <p>Un caso de rabia humana representa una falla crítica en el sistema de salud, ya que se trata de un evento prevenible mediante las acciones adecuadas. Por eso, resulta esencial reforzar la identificación oportuna de los ciclos de transmisión, asegurar el acceso equitativo a la profilaxis postexposición (PEP) y sostener campañas anuales de vacunación antirrábica en perros y gatos.</p> 
+            <p>Este informe destaca la importancia de sostener la vigilancia activa y pasiva de la rabia, fortalecer la capacidad de diagnóstico, promover la sospecha clínica temprana y asegurar la aplicación de medidas de prevención adaptadas a los distintos contextos ecoepidemiológicos del país. Dada la complejidad del sistema de vigilancia y la necesidad de integrar datos de salud humana y animal, la información presentada puede estar sujeta a ajustes o actualizaciones según avances en la notificación y el análisis epidemiológico.</p>
+            
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>    
+    <!-- FIN NUEVOS MODALES PARA RABIA -->
+
+    <!-- NUEVOS MODALES PARA MONÓXIDO -->
+    <div id="modal-monoxido-historica" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>Intoxicación por Monóxido de Carbono</h3>
+            <p>La intoxicación por monóxido de carbono (CO) constituye un evento de importancia sanitaria debido a su alta prevalencia y potencial letalidad. El CO es un gas inodoro, incoloro, insípido y no irritante que se produce por la combustión incompleta de materiales que contienen carbono, como gas natural, kerosén, carbón, madera o combustibles líquidos. Su carácter no perceptible por los sentidos lo convierte en un riesgo silencioso, particularmente en contextos domésticos y laborales mal ventilados.</p>
+            <p>En Argentina, la mayoría de estos eventos se originan en exposiciones no intencionales intradomiciliarias vinculadas al uso inadecuado de artefactos para calefacción o cocción, en ambientes cerrados y sin ventilación adecuada.</p>
+            <p>La vigilancia epidemiológica de este evento permite, potencialmente, detectar de manera oportuna su ocurrencia, identificar fuentes de exposición, implementar medidas de prevención, y monitorear la efectividad de intervenciones locales. Dado el carácter prevenible del evento, los datos aquí presentados resultan fundamentales para dimensionar su impacto, mejorar las estrategias de control y reforzar la articulación intersectorial para reducir su incidencia.</p>
+            <p>Es importante destacar que al igual que en todos los informes presentados en los Boletines Epidemiológicos Nacionales, los datos de los eventos notificados son parciales y sujetos a modificación. Si bien sistemáticamente se especifica en las notas metodológicas, en esta oportunidad, dado el carácter estacional y la particular visibilidad en medios de comunicación que presenta la intoxicación por monóxido de carbono, se quiere insistir en que la información aquí expuesta tiene como única fuente oficial el Sistema Nacional de Vigilancia de la Salud (SNVS 2.0) y proviene de establecimientos que notifican a este Sistema de manera heterogénea.</p>
+            <p>En el marco, es dable recalcar que desde el Área de Vigilancia de la Salud de la Dirección de Epidemiología del Ministerio de Salud de la Nación y de cada una de las Áreas de Epidemiología jurisdiccionales, se realiza un constante trabajo de monitoreo y evaluación para la mejora de la cobertura, oportunidad, regularidad y calidad de los datos. </p>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    
+    <div id="modal-monoxido-preventivas" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3>MEDIDAS PREVENTIVAS</h3>
+            <p>Para prevenir la intoxicación por monóxido de carbono es elemental el control de las instalaciones y el buen funcionamiento de artefactos, así como es importante mantener los ambientes bien ventilados.</p>
+            <p>El ENARGAS impulsa medidas tales como: </p>
+            <ul>
+                <li>Campañas publicitarias y educativas de prevención</li>
+                <li>Incorporación de nuevos dispositivos de seguridad en los artefactos de gas: en los calefactores sin chimenea el piloto analizador de atmósfera y en todos los artefactos con chimenea, piloto analizador de atmósfera o sensor de temperatura en zonas de gases de combustión.</li>
+                <li>Revisión periódica de los artefactos a gas por personal matriculado a través de diferentes resoluciones: la verificación durante las revisiones de funcionamiento de los artefactos, la calidad de la llama, los conductos de evacuación de los productos de la combustión y las aberturas para reposición de aire, además de la correcta ubicación de los artefactos.</li>
+                <li>Inspección de seguridad en las escuelas</li>
+            </ul>
+            <button class="close-modal-btn">X</button>
+        </div>
+    </div>
+    <!-- FIN NUEVOS MODALES PARA MONÓXIDO -->
+
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Boletín Epidemiológico Nacional. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
