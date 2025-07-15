@@ -4,9 +4,9 @@
 
 /* Estilos Generales */
 html, body {
+    height: 100%; /* Asegura que html y body ocupen toda la altura de la ventana */
     margin: 0;
     padding: 0;
-    /* Eliminado height: 100% de html, body para evitar posibles conflictos en móviles */
 }
 
 body {
@@ -14,7 +14,11 @@ body {
     background-color: #f4f4f4; /* Gris claro de fondo */
     color: #333; /* Color de texto general */
     line-height: 1.6;
-    /* Las propiedades flexbox para el sticky footer se eliminaron para evitar problemas en móvil */
+    
+    /* Propiedades flexbox para el sticky footer */
+    display: flex; /* Convierte el body en un contenedor flex */
+    flex-direction: column; /* Apila los elementos (header, content, footer) verticalmente */
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la altura de la vista */
 }
 
 /* Main Header */
@@ -23,21 +27,35 @@ body {
     color: white;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    flex-shrink: 0; /* Evita que el header se encoja */
 }
 
 .header-content {
-    display: flex; /* Usamos flexbox para alinear logo y texto */
+    display: flex; /* Usamos flexbox para alinear logo, texto y botón */
     align-items: center; /* Alinea verticalmente los ítems al centro */
-    gap: 20px; /* Espacio entre el logo y el texto */
+    justify-content: space-between; /* Distribuye el espacio entre el grupo de logo/texto y el botón */
+    gap: 20px; /* Espacio entre el grupo de logo/texto y el botón */
     max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 10px; /* Espacio antes de la navegación */
     border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Separador visual */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.header-info { /* Contenedor para el logo y el texto del encabezado */
+    display: flex; /* Usa flexbox para alinear el logo y el texto */
+    align-items: center; /* Alinea verticalmente el logo y el texto */
+    gap: 20px; /* Espacio entre el logo y el texto */
+    flex-shrink: 1; /* Permite que se encoja si es necesario */
 }
 
 .header-logo {
     height: 80px; /* Ajusta el tamaño del logo */
     width: auto; /* Mantiene la proporción */
+}
+
+.header-text {
+    flex-shrink: 1; /* Permite que el texto se encoja */
 }
 
 .header-text h1, .header-text h2, .header-text p {
@@ -82,11 +100,24 @@ body {
     min-width: 120px; /* Ancho mínimo para el botón */
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: background-color 0.3s ease, transform 0.2s ease;
+    flex-shrink: 0; /* Evita que el botón se encoja demasiado */
 }
 
 .download-btn:hover {
     background-color: #4A8C8A; /* Un verde ligeramente más oscuro para hover */
     transform: translateY(-2px); /* Pequeño efecto al pasar el ratón */
+}
+
+
+/* Main Navigation */
+#main-nav {
+    display: flex;
+    justify-content: center; /* Centra los botones de navegación */
+    flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea si no caben */
+    gap: 10px; /* Espacio entre botones */
+    padding: 10px 0;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Main Navigation */
