@@ -402,12 +402,17 @@ body {
 
 /* Footer */
 .main-footer {
-    background-color: #2C2D51; /* Azul institucional oscuro */
-    color: white;
+    background-color: #2C2D51; /* Mismo color que el header */
+    color: #ffffff; /* Color blanco para todo el texto en el footer */
     text-align: center;
     padding: 15px;
     font-size: 0.9em;
-    margin-top: 30px; /* Margen fijo como en stylebueno.css */
+    margin-top: 30px;
+}
+
+/* Aplica el color blanco a los enlaces dentro del footer, que de otra manera podrían ser azules */
+.main-footer a {
+    color: #ffffff;
 }
 
 /* Responsive Adjustments */
