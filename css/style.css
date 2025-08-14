@@ -23,7 +23,7 @@ body {
 
 /* Main Header */
 .main-header {
-    background-color: #2C2D51; /* Azul institucional oscuro */
+    background-color: #242C4F; /* Azul institucional oscuro */
     color: white;
     padding: 10px 20px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
@@ -82,7 +82,7 @@ body {
 
 /* Botón de descarga PDF */
 .download-btn {
-    background-color: #5DABA9; /* Verde institucional */
+    background-color: #45658D; /* Verde institucional */
     color: white;
     border: none;
     padding: 10px 15px;
@@ -104,7 +104,7 @@ body {
 }
 
 .download-btn:hover {
-    background-color: #4A8C8A; /* Un verde ligeramente más oscuro para hover */
+    background-color: #E7BA61; /* Un verde ligeramente más oscuro para hover */
     transform: translateY(-2px); /* Pequeño efecto al pasar el ratón */
 }
 
@@ -132,7 +132,7 @@ body {
 }
 
 .nav-button {
-    background-color: #5DABA9; /* Verde institucional */
+    background-color: #45658D; /* Verde institucional */
     color: white;
     border: none;
     padding: 10px 15px;
@@ -145,11 +145,11 @@ body {
 }
 
 .nav-button:hover {
-    background-color: #4A8C8A; /* Un verde ligeramente más oscuro para hover */
+    background-color: #E7BA61; /* Un verde ligeramente más oscuro para hover */
 }
 
 .nav-button.active {
-    background-color: #2C2D51; /* Azul institucional oscuro para el botón activo */
+    background-color: #242C4F; /* Azul institucional oscuro para el botón activo */
     font-weight: bold;
     box-shadow: inset 0 0 8px rgba(0,0,0,0.3);
 }
@@ -288,7 +288,7 @@ body {
 .more-info-btn {
     display: flex; /* Para alinear el texto y el emoji */
     align-items: center;
-    background-color: #5DABA9; /* Verde institucional */
+    background-color: #45658D; /* Verde institucional */
     color: white;
     border: none;
     padding: 12px 25px;
@@ -307,7 +307,7 @@ body {
 }
 
 .more-info-btn:hover {
-    background-color: #4A8C8A; /* Un verde ligeramente más oscuro para hover */
+    background-color: #E7BA61; /* Un verde ligeramente más oscuro para hover */
     transform: translateY(-2px); /* Pequeño efecto al pasar el ratón */
 }
 
@@ -364,7 +364,7 @@ body {
 
 
 .modal-content h3 {
-    color: #2C2D51; /* Azul institucional oscuro para títulos de modal */
+    color: #242C4F; /* Azul institucional oscuro para títulos de modal */
     font-size: 1.8em;
     margin-top: 0;
     border-bottom: 1px solid #eee;
@@ -402,7 +402,7 @@ body {
 
 /* Footer */
 .main-footer {
-    background-color: #2C2D51; /* Mismo color que el header */
+    background-color: #242C4F; /* Mismo color que el header */
     color: #ffffff; /* Color blanco para todo el texto en el footer */
     text-align: center;
     padding: 15px;
